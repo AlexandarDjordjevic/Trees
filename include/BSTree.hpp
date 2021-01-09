@@ -79,7 +79,7 @@ public:
      * 
      * @return KeyType 
      */
-    KeyType Min(){
+    KeyType Min() const{
         if (IsEmpty()) throw("Empty tree");
         auto min = m_Root;
         while (min->m_Left) min = min->m_Left;
@@ -91,7 +91,7 @@ public:
      * 
      * @return KeyType 
      */
-    KeyType Max(){
+    KeyType Max() const{
         if (IsEmpty()) throw("Empty tree");
         auto max = m_Root;
         while (max->m_Right) max = max->m_Right;
@@ -104,7 +104,7 @@ public:
      * @return true 
      * @return false 
      */
-    bool IsEmpty(){
+    bool IsEmpty() const{
         return m_Root == nullptr;
     }
 
@@ -113,7 +113,7 @@ public:
      * 
      * @return size_t 
      */
-    size_t Size(){
+    size_t Size() const{
         return m_Size;
     }
 
@@ -124,12 +124,12 @@ public:
      * @return true 
      * @return false 
      */
-    bool Contains(KeyType key){
+    bool Contains(KeyType key) const{
        return ContainsHelper(m_Root, key);
     }
     
 #ifdef DEBUG
-    void Print(){
+    void Print() const{
         std::cout << "[ ";
         PrintHelper(m_Root);
         std::cout << "]" << std::endl;
@@ -162,7 +162,7 @@ private:
         delete node;
     }
 
-    bool ContainsHelper(Node* root, KeyType key){
+    bool ContainsHelper(const Node* root, KeyType key) const{
         if (root->m_Key > key)
             return (root->m_Left) ? ContainsHelper(root->m_Left, key) : false;
         else if (root->m_Key < key)
@@ -172,7 +172,7 @@ private:
     }   
 
 #ifdef DEBUG
-    void PrintHelper(Node* node){
+    void PrintHelper(const Node* node) const{
         if (node->m_Left)
             PrintHelper(node->m_Left);
         std::cout << node->m_Key << ' ';
