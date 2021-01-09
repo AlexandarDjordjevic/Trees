@@ -77,7 +77,7 @@ public:
      * @return KeyType 
      */
     KeyType Min() const{
-        if (IsEmpty()) throw("Empty tree");
+        if (IsEmpty()) throw std::length_error("Tree is empty");
         auto min = m_Root;
         while (min->m_Left) min = min->m_Left;
         return min->m_Key;
@@ -89,7 +89,7 @@ public:
      * @return KeyType 
      */
     KeyType Max() const{
-        if (IsEmpty()) throw("Empty tree");
+        if (IsEmpty()) throw std::length_error("Tree is empty");
         auto max = m_Root;
         while (max->m_Right) max = max->m_Right;
         return max->m_Key;
@@ -151,11 +151,13 @@ private:
     }
 
     void FreeNode(Node* node){
-        if (node->m_Left)
-            FreeNode(node->m_Left);
-        if (node->m_Right)
-            FreeNode(node->m_Right);
-        delete node;
+        if (IsEmpty() == false){
+            if (node->m_Left)
+                FreeNode(node->m_Left);
+            if (node->m_Right)
+                FreeNode(node->m_Right);
+            delete node;
+        }
     }
 
     bool ContainsHelper(const Node* root, KeyType key) const{
@@ -178,7 +180,7 @@ private:
 #endif
 
 private:
-    Node* m_Root;
-    size_t m_Size;
+    Node* m_Root = nullptr;
+    size_t m_Size = 0;
 };
 

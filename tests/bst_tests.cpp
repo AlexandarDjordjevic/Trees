@@ -26,6 +26,10 @@ TEST(BST, Min){
     ASSERT_EQ(6, bst.Min());
 }
 
+TEST(BST, MinEmptyTree){
+    BSTree<int> bst;
+    ASSERT_THROW(bst.Min(), std::length_error);
+}
 TEST(BST, Max){
     BSTree<int> bst;
     bst.Insert(10);
@@ -34,6 +38,11 @@ TEST(BST, Max){
     ASSERT_EQ(26, bst.Max());
 }
 
+
+TEST(BST, MaxEmptyTree){
+    BSTree<int> bst;
+    ASSERT_THROW(bst.Max(), std::length_error);
+}
 TEST(BST, Size){
     BSTree<int> bst;
     ASSERT_EQ(0, bst.Size());
