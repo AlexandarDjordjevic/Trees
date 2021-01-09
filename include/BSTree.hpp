@@ -21,13 +21,11 @@ private:
         Node() 
             : m_Left(nullptr), m_Right(nullptr), m_Key(0)
         {
-
         }
 
         Node(KeyType key) 
             : m_Left(nullptr), m_Right(nullptr), m_Key(key)
         {
-
         }   
 
         Node(const Node&) = delete;
@@ -48,8 +46,7 @@ public:
      */
     BSTree()
         : m_Root(nullptr), m_Size(0)
-    {
-        
+    {        
     };
 
     /**
@@ -138,7 +135,6 @@ public:
     
 private:
     Node* InsertHelper(Node* node, KeyType key){
-        
         if (node == nullptr){
             m_Size++;
             return new Node(key);
