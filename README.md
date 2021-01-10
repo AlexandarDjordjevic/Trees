@@ -20,18 +20,18 @@ Binary Search Tree data structure implementation.
 
 ## Build
 
-* `make all` - Build all targets
-* `make all debug=yes` - Build all targets (debug)
+* `make all <debug=yes>` - Build all targets. Debug is optional
 * `make unit_tests` - Build unit tests
 * `make run_tests` - Run tests
-* `make examples` - Build examples
-* `make run_example_1` - Run example 1
-* `make run_example_2` - Run example 2
+* `make examples <debug=yes>` - Build examples. Debug is optional
+* `make run_example_1 <debug=yes>` - Run example 1. Debug is optional
+* `make run_example_2 <debug=yes>` - Run example 2. Debug is optional
 
 ## API List
 
 * `BSTree();` - Default constructor
 * `void Insert(KeyType key);` - Insert new element into the tree
+* `void Delete(KeyType key);` - Delete element from the tree
 * `KeyType Min() const;` - Return tree min key value
 * `KeyType Max() const;` - Return tree max key value
 * `bool IsEmpty() const;` - Check if tree is empty

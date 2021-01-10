@@ -72,15 +72,22 @@ public:
     }
 
     /**
+     * @brief Delete key for the tree
+     * 
+     * @param key to delete
+     */
+    void Delete(KeyType key){
+        m_Root = DeleteHelper(m_Root, key);
+    }
+
+    /**
      * @brief Return tree min key value
      * 
      * @return KeyType 
      */
     KeyType Min() const{
         if (IsEmpty()) throw std::length_error("Tree is empty");
-        auto min = m_Root;
-        while (min->m_Left) min = min->m_Left;
-        return min->m_Key;
+        return MinHelper(m_Root);
     }
 
     /**
@@ -126,7 +133,11 @@ public:
     }
     
 #ifdef DEBUG
-    void Print() const{
+    /**
+     * @brief This function is used to print keys in ascending order
+     * 
+     */
+    void Traverse() const{
         std::cout << "[ ";
         PrintHelper(m_Root);
         std::cout << "]" << std::endl;
@@ -139,7 +150,7 @@ private:
             m_Size++;
             return new Node(key);
         }
-        if (node->m_Key > key){
+        if (key < node->m_Key){
             node->m_Left = InsertHelper(node->m_Left, key);
         }
         else 
@@ -168,6 +179,43 @@ private:
         else 
             return true;
     }   
+
+    KeyType MinHelper(const Node* root) const{
+        auto min = root;
+        while (min->m_Left) min = min->m_Left;
+        return min->m_Key;
+    }
+
+    Node* DeleteHelper(Node* root, KeyType key){
+        if (root == nullptr) return root;
+
+        if (key > root->m_Key)
+            root->m_Right = DeleteHelper(root->m_Right, key);
+        else if (key < root->m_Key)
+            root->m_Left = DeleteHelper(root->m_Left, key);
+        else{
+            if (root->m_Left == nullptr && root->m_Right == nullptr){
+                delete root;
+                root = nullptr;
+                m_Size--;
+            } else if (root->m_Left == nullptr){
+                auto right = root->m_Right;
+                delete root;
+                root = right;
+                m_Size--;
+            } else if (root->m_Right == nullptr){
+                auto left = root->m_Left;
+                delete root;
+                root = left;
+                m_Size--;
+            } else {
+                auto min = MinHelper(root->m_Right);
+                root->m_Key = min;
+                root->m_Right = DeleteHelper(root->m_Right, min);
+            }
+        }
+        return root;
+    }
 
 #ifdef DEBUG
     void PrintHelper(const Node* node) const{

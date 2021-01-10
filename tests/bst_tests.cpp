@@ -71,44 +71,109 @@ TEST(BST, Contains){
     ASSERT_TRUE(bst.Contains(12));
     ASSERT_TRUE(bst.Contains(3));
 }
-// TEST(BST, AscendingVector){
-//     BSTree<int> bst;
-//     bst.Insert(10);
-//     bst.Insert(14);
-//     bst.Insert(6);
-//     ASSERT_EQ((std::vector<int>{6, 10, 14}), bst.ToAscendingVector());
-// }
 
+TEST(BST, DeleteLeafNode){
+    BSTree<int> bst;
+    bst.Insert(10);
+    bst.Insert(14);
+    bst.Insert(6);
+    ASSERT_TRUE(bst.Contains(14));
+    auto size = bst.Size();
+    bst.Delete(14);
+    ASSERT_FALSE(bst.Contains(14));
+    ASSERT_EQ(size - 1, bst.Size());
+}
 
-// TEST(BST, DescendingVector){
-//     BSTree<int> bst;
-//     bst.Insert(10);
-//     bst.Insert(14);
-//     bst.Insert(6);
-//     ASSERT_EQ((std::vector<int>{14, 10, 6}), bst.ToDescendingVector());
-// }
+TEST(BST, DeleteRootNode){
+    BSTree<int> bst;
+    bst.Insert(10);
+    bst.Insert(14);
+    bst.Insert(6);
+    bst.Insert(8);
+    bst.Insert(9);
+    bst.Insert(3);
+    bst.Insert(4);
+    bst.Insert(12);
+    bst.Insert(15);
+    bst.Insert(13);
+    auto size = bst.Size();
+    ASSERT_TRUE(bst.Contains(10));
+    bst.Delete(10);
+    ASSERT_FALSE(bst.Contains(10));
+    ASSERT_EQ(size - 1, bst.Size());
+}
 
-// TEST(BST, RemoveLeafNode){
-//     BSTree<int> bst;
-//     bst.Insert(10);
-//     bst.Insert(14);
-//     bst.Insert(6);
-//     bst.Delete(14);
-//     ASSERT_EQ((std::vector<int>{6, 10}), bst.ToAscendingVector());
-// }
+TEST(BST, DeleteNodeWithBothChildren){
+    BSTree<int> bst;
+    bst.Insert(10);
+    bst.Insert(14);
+    bst.Insert(6);
+    bst.Insert(8);
+    bst.Insert(9);
+    bst.Insert(3);
+    bst.Insert(4);
+    bst.Insert(12);
+    bst.Insert(15);
+    bst.Insert(13);
+    auto size = bst.Size();
+    ASSERT_TRUE(bst.Contains(14));
+    bst.Delete(14);
+    ASSERT_FALSE(bst.Contains(14));
+    ASSERT_EQ(size - 1, bst.Size());
+}
 
-// TEST(BST, RemoveRootNode){
-//     BSTree<int> bst;
-//     bst.Insert(10);
-//     bst.Insert(14);
-//     bst.Insert(6);
-//     bst.Insert(8);
-//     bst.Insert(9);
-//     bst.Insert(3);
-//     bst.Insert(4);
-//     bst.Insert(12);
-//     bst.Insert(15);
-//     bst.Insert(13);
-//     bst.Delete(10);
-//     ASSERT_EQ((std::vector<int>{3, 4, 6, 8, 9, 12, 13, 14, 15}), bst.ToAscendingVector());
-// }
+TEST(BST, DeleteNodeWithOnlyLeftChild){
+    BSTree<int> bst;
+    bst.Insert(10);
+    bst.Insert(14);
+    bst.Insert(6);
+    bst.Insert(8);
+    bst.Insert(9);
+    bst.Insert(3);
+    bst.Insert(2);
+    bst.Insert(12);
+    bst.Insert(15);
+    bst.Insert(13);
+    auto size = bst.Size();
+    ASSERT_TRUE(bst.Contains(3));
+    bst.Delete(3);
+    ASSERT_FALSE(bst.Contains(3));
+    ASSERT_EQ(size - 1, bst.Size());
+}
+
+TEST(BST, DeleteNodeWithOnlyRightChild){
+    BSTree<int> bst;
+    bst.Insert(10);
+    bst.Insert(14);
+    bst.Insert(6);
+    bst.Insert(8);
+    bst.Insert(9);
+    bst.Insert(3);
+    bst.Insert(4);
+    bst.Insert(12);
+    bst.Insert(15);
+    bst.Insert(13);
+    auto size = bst.Size();
+    ASSERT_TRUE(bst.Contains(8));
+    bst.Delete(8);
+    ASSERT_FALSE(bst.Contains(8));
+    ASSERT_EQ(size - 1, bst.Size());
+}
+
+TEST(BST, DeleteNonexistingKey){
+    BSTree<int> bst;
+    bst.Insert(10);
+    bst.Insert(14);
+    bst.Insert(6);
+    bst.Insert(8);
+    bst.Insert(9);
+    bst.Insert(3);
+    bst.Insert(4);
+    bst.Insert(12);
+    bst.Insert(15);
+    bst.Insert(13);
+    auto size = bst.Size();
+    bst.Delete(16);
+    ASSERT_EQ(size, bst.Size());
+}
+
