@@ -42,7 +42,7 @@ examples: make_dirs $(OBJECTS)
 
 #Tests
 .PHONY: unit_tests
-unit_tests:
+unit_tests: make_dirs
 	$(call print_info_msg, Building unit tests)
 	@$(CXX) $(TEST_SRC) $ $(CXXFLAGS) $(LDFLAGS) -lgtest -lgtest_main -lpthread -o $(TESTS_DIR)/$@
 
