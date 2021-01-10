@@ -27,6 +27,6 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run all tests
-        run: export TERM=xterm && make run_test
+        run: export TERM=xterm && make run_tests
 
 
