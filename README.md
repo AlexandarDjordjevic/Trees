@@ -4,4 +4,10 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/alexandardjordjevic/bstree/badge)](https://www.codefactor.io/repository/github/alexandardjordjevic/bstree)
 
 
-This is the simple Binary Search Tree data structure implementation
+This is the simple Binary Search Tree data structure implementation.
+
+ * C++ version: `C++11`
+ * Build system: `make`
+ * C++ compiler: `g++`
+ * Libraries: `STL` only
+
