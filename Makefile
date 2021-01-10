@@ -67,9 +67,14 @@ clean:
 
 .PHONY: memcheck
 memcheck:
-	valgrind --tool=memcheck --leak-check=full build/examples/example_int
+	valgrind --tool=memcheck --leak-check=full build/examples/example_1
 
-.PHONY: run_example_int
-run_example_int:
+.PHONY: run_example_1
+run_example_1: examples
 	@clear
-	./build/examples/example_int
+	./build/examples/example_1
+
+.PHONY: run_example_2
+run_example_2: examples
+	@clear
+	./build/examples/example_2

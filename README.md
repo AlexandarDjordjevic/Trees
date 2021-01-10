@@ -1,15 +1,9 @@
-<br />
-<p align="center">
-  <h1 align="center">BSTree</h3>
-  <p align="center">
-    <img src="https://github.com/AlexandarDjordjevic/BSTree/workflows/Build/badge.svg"/>
-    <img src="https://github.com/AlexandarDjordjevic/BSTree/workflows/Unit%20tests/badge.svg"/>
-    <img src="https://www.codefactor.io/repository/github/alexandardjordjevic/bstree/badge/master" alt="CodeFactor" />
-    <img src="https://img.shields.io/github/license/AlexandarDjordjevic/BSTree?style=flat"/>
-  </p>
-</p>
-
 # BSTree
+
+![Licence](https://img.shields.io/github/license/AlexandarDjordjevic/BSTree?style=flat) 
+[![CodeFactor](https://www.codefactor.io/repository/github/alexandardjordjevic/bstree/badge)](https://www.codefactor.io/repository/github/alexandardjordjevic/bstree)
+![Build](https://github.com/AlexandarDjordjevic/BSTree/workflows/Build/badge.svg)
+![Unit tests](https://github.com/AlexandarDjordjevic/BSTree/workflows/Unit%20tests/badge.svg)
 
 Binary Search Tree data structure implementation.
 
@@ -18,8 +12,23 @@ Binary Search Tree data structure implementation.
 * C++ compiler: `g++`
 * Libraries: `STL` only
 
----
+## Requirements
 
-# Build
+* make
+* gcc
+* c++11
 
-Build all: `make all`
+## Build
+
+* Build all targets: `make all`
+* Build all targets (debug): `make all debug=yes`
+* Build unit tests: `make unit_tests`
+* Run tests: `make run_tests`
+* Build examples: `make examples`
+* Run example 1: `make run_example_1`
+* Run example 2: `make run_example_2`
+
+## Examples
+
+_Example 1:_ Demonstrate library usage with double type  
+_Example 2:_ Demonstrate library usage with integer type
