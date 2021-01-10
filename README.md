@@ -7,10 +7,10 @@
 
 Binary Search Tree data structure implementation.
 
-* C++ version: `C++11`
-* Build system: `make`
-* C++ compiler: `g++`
-* Libraries: `STL` only
+* `C++11` C++ version
+* `make` build system
+* `g++` C++ compiler
+* `STL` only libraries
 
 ## Requirements
 
@@ -20,13 +20,23 @@ Binary Search Tree data structure implementation.
 
 ## Build
 
-* Build all targets: `make all`
-* Build all targets (debug): `make all debug=yes`
-* Build unit tests: `make unit_tests`
-* Run tests: `make run_tests`
-* Build examples: `make examples`
-* Run example 1: `make run_example_1`
-* Run example 2: `make run_example_2`
+* `make all` - Build all targets
+* `make all debug=yes` - Build all targets (debug)
+* `make unit_tests` - Build unit tests
+* `make run_tests` - Run tests
+* `make examples` - Build examples
+* `make run_example_1` - Run example 1
+* `make run_example_2` - Run example 2
+
+## API List
+
+* `BSTree();` - Default constructor
+* `void Insert(KeyType key);` - Insert new element into the tree
+* `KeyType Min() const;` - Return tree min key value
+* `KeyType Max() const;` - Return tree max key value
+* `bool IsEmpty() const;` - Check if tree is empty
+* `size_t Size() const;` - Return number of tree elements
+* `bool Contains(KeyType key) const;` - Check if the BST contains given key
 
 ## Examples
 
