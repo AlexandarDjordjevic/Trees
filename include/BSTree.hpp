@@ -8,6 +8,8 @@
  * 
  */
 #pragma once
+#include <vector>
+#include <memory>
 
 #ifdef DEBUG
 #include <iostream>
@@ -132,6 +134,18 @@ public:
        return ContainsHelper(m_Root, key);
     }
     
+    /**
+     * @brief This function return in-order vector of keys
+     * 
+     * @return std::shared_ptr<std::vector<KeyType>>
+     */
+    std::shared_ptr<std::vector<KeyType>> TraverseInorder(){
+        std::shared_ptr<std::vector<KeyType>> array = std::make_shared<std::vector<KeyType>>();
+        array->reserve(m_Size);
+        TraverseInorderHelper(m_Root, array);
+        return array;
+    }
+
 #ifdef DEBUG
     /**
      * @brief This function is used to print keys in ascending order
@@ -145,6 +159,15 @@ public:
 #endif
     
 private:
+    Node* TraverseInorderHelper(Node* root, std::shared_ptr<std::vector<KeyType>> array){
+        if (root != nullptr){
+            if(root->m_Left) TraverseInorderHelper(root->m_Left, array);
+            array->emplace_back(root->m_Key);
+            if(root->m_Right) TraverseInorderHelper(root->m_Right, array);
+        }
+        return root;
+    }
+
     Node* InsertHelper(Node* node, KeyType key){
         if (node == nullptr){
             m_Size++;
@@ -231,4 +254,5 @@ private:
     Node* m_Root = nullptr;
     size_t m_Size = 0;
 };
+
 
