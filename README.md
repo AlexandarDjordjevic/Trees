@@ -1,9 +1,8 @@
 # BST
 
 ![Licence](https://img.shields.io/github/license/AlexandarDjordjevic/BST?style=flat) 
-[![CodeFactor](https://www.codefactor.io/repository/github/alexandardjordjevic/BST/badge)](https://www.codefactor.io/repository/github/alexandardjordjevic/BST)
-![Build](https://github.com/AlexandarDjordjevic/BST/workflows/Build/badge.svg)
-![Unit tests](https://github.com/AlexandarDjordjevic/BST/workflows/Unit%20tests/badge.svg)
+[![CodeFactor](https://www.codefactor.io/repository/github/alexandardjordjevic/bstree/badge/master)](https://www.codefactor.io/repository/github/alexandardjordjevic/bstree/overview/master)
+[![Build](https://github.com/AlexandarDjordjevic/BSTree/actions/workflows/test-code.yml/badge.svg)](https://github.com/AlexandarDjordjevic/BSTree/actions/workflows/test-code.yml)
 
 Binary Search Tree data structure implementation.
 
