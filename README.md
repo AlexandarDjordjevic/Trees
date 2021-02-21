@@ -13,18 +13,17 @@ Binary Search Tree data structure implementation.
 
 ## Requirements
 
-* make
+* CMake 3.8
 * gcc
 * c++11
 
 ## Build
 
-* `make all <debug=yes>` - Build all targets. Debug is optional
-* `make unit_tests` - Build unit tests
-* `make run_tests` - Run tests
-* `make examples <debug=yes>` - Build examples. Debug is optional
-* `make run_example_1 <debug=yes>` - Run example 1. Debug is optional
-* `make run_example_2 <debug=yes>` - Run example 2. Debug is optional
+```shell
+    mkdir build
+    cmake . -B build
+    cmake --build build --target all
+```
 
 ## API List
 
