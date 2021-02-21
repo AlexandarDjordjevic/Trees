@@ -15,6 +15,8 @@
 #include <iostream>
 #endif
 
+namespace Tree{
+
 template <class KeyType>
 class BST{
 private:
@@ -254,5 +256,4 @@ private:
     Node* m_Root = nullptr;
     size_t m_Size = 0;
 };
-
-
+}

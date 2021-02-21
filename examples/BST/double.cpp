@@ -15,7 +15,7 @@ int main(){
 
     std::cout << TREE << std::endl;
     std::cout << "------------------------" << std::endl;
-    BST<double> bst;
+    Tree::BST<double> bst;
 
     std::cout << "Insert: 10.1, 14.2, 6.4, 8, 9.1, 3, 2.99, 12.8, 14.5, 13" << std::endl;
     bst.Insert(10.1);
