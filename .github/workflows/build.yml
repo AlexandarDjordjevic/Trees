@@ -13,5 +13,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: make examples
-      run: make examples
+    - name: build
+      run: mkdir build && cmake . -B build && cmake --build build --target all

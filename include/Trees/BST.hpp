@@ -159,7 +159,6 @@ public:
 #endif
     
 private:
-
     Node* TraverseInorderHelper(Node* root, std::shared_ptr<std::vector<KeyType>> array){
         if (root != nullptr){
             if(root->m_Left) TraverseInorderHelper(root->m_Left, array);
