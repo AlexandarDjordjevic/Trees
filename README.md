@@ -1,9 +1,9 @@
-# BSTree
+# BST
 
-![Licence](https://img.shields.io/github/license/AlexandarDjordjevic/BSTree?style=flat) 
-[![CodeFactor](https://www.codefactor.io/repository/github/alexandardjordjevic/bstree/badge)](https://www.codefactor.io/repository/github/alexandardjordjevic/bstree)
-![Build](https://github.com/AlexandarDjordjevic/BSTree/workflows/Build/badge.svg)
-![Unit tests](https://github.com/AlexandarDjordjevic/BSTree/workflows/Unit%20tests/badge.svg)
+![Licence](https://img.shields.io/github/license/AlexandarDjordjevic/BST?style=flat) 
+[![CodeFactor](https://www.codefactor.io/repository/github/alexandardjordjevic/BST/badge)](https://www.codefactor.io/repository/github/alexandardjordjevic/BST)
+![Build](https://github.com/AlexandarDjordjevic/BST/workflows/Build/badge.svg)
+![Unit tests](https://github.com/AlexandarDjordjevic/BST/workflows/Unit%20tests/badge.svg)
 
 Binary Search Tree data structure implementation.
 
@@ -29,7 +29,7 @@ Binary Search Tree data structure implementation.
 
 ## API List
 
-* `BSTree();` - Default constructor
+* `BST();` - Default constructor
 * `void Insert(KeyType key);` - Insert new element into the tree
 * `void Delete(KeyType key);` - Delete element from the tree
 * `KeyType Min() const;` - Return tree min key value

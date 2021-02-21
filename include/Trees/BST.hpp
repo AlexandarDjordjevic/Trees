@@ -16,7 +16,7 @@
 #endif
 
 template <class KeyType>
-class BSTree{
+class BST{
 private:
     struct Node
     {
@@ -46,7 +46,7 @@ public:
      * @brief Default constructor
      * 
      */
-    BSTree()
+    BST()
         : m_Root(nullptr), m_Size(0)
     {        
     };
@@ -55,14 +55,14 @@ public:
      * @brief Default destructor
      * 
      */
-    ~BSTree(){
+    ~BST(){
         FreeNode(m_Root);
     }
 
-    BSTree(const BSTree&) = delete;
-    BSTree& operator=(const BSTree&) = delete;
-    BSTree(BSTree&&) = delete;
-    BSTree& operator=(BSTree &&) = delete;
+    BST(const BST&) = delete;
+    BST& operator=(const BST&) = delete;
+    BST(BST&&) = delete;
+    BST& operator=(BST &&) = delete;
 
     /**
      * @brief Insert new element into the tree
@@ -159,6 +159,7 @@ public:
 #endif
     
 private:
+
     Node* TraverseInorderHelper(Node* root, std::shared_ptr<std::vector<KeyType>> array){
         if (root != nullptr){
             if(root->m_Left) TraverseInorderHelper(root->m_Left, array);

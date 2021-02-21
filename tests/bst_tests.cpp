@@ -1,16 +1,16 @@
 #include <gtest/gtest.h>
-#include <BSTree.hpp>
+#include <Trees/BST.hpp>
 
 
 TEST(BST, IsEmpty){
-    BSTree<int> bst;
+    BST<int> bst;
     ASSERT_TRUE(bst.IsEmpty());
     bst.Insert(15);
     ASSERT_FALSE(bst.IsEmpty());
 }
 
 TEST(BST, Insert){
-    BSTree<int> bst;
+    BST<int> bst;
     bst.Insert(10);
     ASSERT_FALSE(bst.IsEmpty());
     bst.Insert(14);
@@ -19,7 +19,7 @@ TEST(BST, Insert){
 }
 
 TEST(BST, Min){
-    BSTree<int> bst;
+    BST<int> bst;
     bst.Insert(10);
     bst.Insert(14);
     bst.Insert(6);
@@ -27,11 +27,11 @@ TEST(BST, Min){
 }
 
 TEST(BST, MinEmptyTree){
-    BSTree<int> bst;
+    BST<int> bst;
     ASSERT_THROW(bst.Min(), std::length_error);
 }
 TEST(BST, Max){
-    BSTree<int> bst;
+    BST<int> bst;
     bst.Insert(10);
     bst.Insert(14);
     bst.Insert(26);
@@ -40,11 +40,11 @@ TEST(BST, Max){
 
 
 TEST(BST, MaxEmptyTree){
-    BSTree<int> bst;
+    BST<int> bst;
     ASSERT_THROW(bst.Max(), std::length_error);
 }
 TEST(BST, Size){
-    BSTree<int> bst;
+    BST<int> bst;
     ASSERT_EQ(0, bst.Size());
     bst.Insert(10);
     ASSERT_EQ(1, bst.Size());
@@ -55,7 +55,7 @@ TEST(BST, Size){
 }
 
 TEST(BST, Contains){
-    BSTree<int> bst;
+    BST<int> bst;
     bst.Insert(10);
     bst.Insert(14);
     bst.Insert(6);
@@ -73,7 +73,7 @@ TEST(BST, Contains){
 }
 
 TEST(BST, DeleteLeafNode){
-    BSTree<int> bst;
+    BST<int> bst;
     bst.Insert(10);
     bst.Insert(14);
     bst.Insert(6);
@@ -85,7 +85,7 @@ TEST(BST, DeleteLeafNode){
 }
 
 TEST(BST, DeleteRootNode){
-    BSTree<int> bst;
+    BST<int> bst;
     bst.Insert(10);
     bst.Insert(14);
     bst.Insert(6);
@@ -104,7 +104,7 @@ TEST(BST, DeleteRootNode){
 }
 
 TEST(BST, DeleteNodeWithBothChildren){
-    BSTree<int> bst;
+    BST<int> bst;
     bst.Insert(10);
     bst.Insert(14);
     bst.Insert(6);
@@ -123,7 +123,7 @@ TEST(BST, DeleteNodeWithBothChildren){
 }
 
 TEST(BST, DeleteNodeWithOnlyLeftChild){
-    BSTree<int> bst;
+    BST<int> bst;
     bst.Insert(10);
     bst.Insert(14);
     bst.Insert(6);
@@ -142,7 +142,7 @@ TEST(BST, DeleteNodeWithOnlyLeftChild){
 }
 
 TEST(BST, DeleteNodeWithOnlyRightChild){
-    BSTree<int> bst;
+    BST<int> bst;
     bst.Insert(10);
     bst.Insert(14);
     bst.Insert(6);
@@ -161,7 +161,7 @@ TEST(BST, DeleteNodeWithOnlyRightChild){
 }
 
 TEST(BST, DeleteNonexistingKey){
-    BSTree<int> bst;
+    BST<int> bst;
     bst.Insert(10);
     bst.Insert(14);
     bst.Insert(6);
@@ -178,7 +178,7 @@ TEST(BST, DeleteNonexistingKey){
 }
 
 TEST(BST, InorderTraversal){
-    BSTree<int> bst;
+    BST<int> bst;
     bst.Insert(10);
     bst.Insert(14);
     bst.Insert(6);

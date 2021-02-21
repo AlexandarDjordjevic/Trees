@@ -1,5 +1,5 @@
 #include <iostream>
-#include <BSTree.hpp>
+#include <Trees/BST.hpp>
 
 #define TREE "TREE:\n\
          10 \n\
@@ -15,7 +15,7 @@ int main(){
 
     std::cout << TREE << std::endl;
     std::cout << "------------------------" << std::endl;
-    BSTree<int> bst;
+    BST<int> bst;
 
     std::cout << "Insert: 10, 14, 6, 8, 9, 3, 2, 12, 15, 13" << std::endl;
     bst.Insert(10);
