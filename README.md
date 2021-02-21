@@ -2,7 +2,7 @@
 
 [![Build](https://github.com/AlexandarDjordjevic/Trees/actions/workflows/test-code.yml/badge.svg)](https://github.com/AlexandarDjordjevic/Trees/actions/workflows/test-code.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/alexandardjordjevic/trees/badge)](https://www.codefactor.io/repository/github/alexandardjordjevic/trees)
-![Licence](https://img.shields.io/github/license/AlexandarDjordjevic/BST?style=flat) 
+![Licence](https://img.shields.io/github/license/AlexandarDjordjevic/Trees?style=flat) 
 
 Binary Search Tree data structure implementation.
 
