@@ -15,32 +15,32 @@ int main(){
 
     std::cout << TREE << std::endl;
     std::cout << "------------------------" << std::endl;
-    Tree::BST<int> bst;
+    tree::BST<int> bst;
 
-    std::cout << "Insert: 10, 14, 6, 8, 9, 3, 2, 12, 15, 13" << std::endl;
-    bst.Insert(10);
-    bst.Insert(14);
-    bst.Insert(6);
-    bst.Insert(8);
-    bst.Insert(9);
-    bst.Insert(3);
-    bst.Insert(2);
-    bst.Insert(12);
-    bst.Insert(15);
-    bst.Insert(13);
+    std::cout << "insert: 10, 14, 6, 8, 9, 3, 2, 12, 15, 13" << std::endl;
+    bst.insert(10);
+    bst.insert(14);
+    bst.insert(6);
+    bst.insert(8);
+    bst.insert(9);
+    bst.insert(3);
+    bst.insert(2);
+    bst.insert(12);
+    bst.insert(15);
+    bst.insert(13);
 
 #ifdef DEBUG
     std::cout << "Tree: ";
     bst.Traverse();
 #endif
 
-    std::cout << "Min: " << bst.Min() << std::endl;
-    std::cout << "Size: " << bst.Size() << std::endl;
-    std::cout << "Contains 8: " << std::boolalpha << bst.Contains(8) << std::endl;
-    std::cout << "Delete: 8" << std::endl;
-    bst.Delete(8);
-    std::cout << "Size: " << bst.Size() << std::endl;
-    std::cout << "Contains 8: " << std::boolalpha << bst.Contains(8) << std::endl;
+    std::cout << "min: " << bst.min() << std::endl;
+    std::cout << "size: " << bst.size() << std::endl;
+    std::cout << "contains 8: " << std::boolalpha << bst.contains(8) << std::endl;
+    std::cout << "remove: 8" << std::endl;
+    bst.remove(8);
+    std::cout << "size: " << bst.size() << std::endl;
+    std::cout << "contains 8: " << std::boolalpha << bst.contains(8) << std::endl;
 
 #ifdef DEBUG
     std::cout << "Tree: ";

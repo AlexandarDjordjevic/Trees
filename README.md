@@ -7,7 +7,7 @@
 Binary Search Tree data structure implementation.
 
 * `C++11` C++ version
-* `make` build system
+* `CMake` build system
 * `g++` C++ compiler
 * `STL` only libraries
 
@@ -28,13 +28,13 @@ Binary Search Tree data structure implementation.
 ## API List
 
 * `BST();` - Default constructor
-* `void Insert(KeyType key);` - Insert new element into the tree
-* `void Delete(KeyType key);` - Delete element from the tree
-* `KeyType Min() const;` - Return tree min key value
-* `KeyType Max() const;` - Return tree max key value
-* `bool IsEmpty() const;` - Check if tree is empty
-* `size_t Size() const;` - Return number of tree elements
-* `bool Contains(KeyType key) const;` - Check if the BST contains given key
+* `void insert(KEY_T key);` - insert new element into the tree
+* `void remove(KEY_T key);` - remove element from the tree
+* `KEY_T min() const;` - Return tree min key value
+* `KEY_T max() const;` - Return tree max key value
+* `bool is_empty() const;` - Check if tree is empty
+* `size_t size() const;` - Return number of tree elements
+* `bool contains(KEY_T key) const;` - Check if the BST contains given key
 
 ## Examples
 

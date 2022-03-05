@@ -15,20 +15,20 @@
 #include <iostream>
 #endif
 
-namespace Tree{
+namespace tree{
 
-template <class KeyType>
+template <class KEY_T>
 class BST{
 private:
     struct Node
     {
         Node() 
-            : m_Left(nullptr), m_Right(nullptr), m_Key(0)
+            : m_left{nullptr}, m_right{nullptr}, m_key{0}
         {
         }
 
-        Node(KeyType key) 
-            : m_Left(nullptr), m_Right(nullptr), m_Key(key)
+        Node(KEY_T key) 
+            : m_left{nullptr}, m_right{nullptr}, m_key{key}
         {
         }   
 
@@ -38,9 +38,9 @@ private:
         Node(Node&&) = delete;
         Node& operator=(Node&&) = delete;
 
-        Node* m_Left;
-        Node* m_Right;
-        KeyType m_Key;
+        Node* m_left;
+        Node* m_right;
+        KEY_T m_key;
     };
     
 public:
@@ -49,7 +49,7 @@ public:
      * 
      */
     BST()
-        : m_Root(nullptr), m_Size(0)
+        : m_root(nullptr), m_size(0)
     {        
     };
 
@@ -57,8 +57,7 @@ public:
      * @brief Default destructor
      * 
      */
-    ~BST(){
-        FreeNode(m_Root);
+    ~BST(){ free_node(m_root);
     }
 
     BST(const BST&) = delete;
@@ -67,43 +66,41 @@ public:
     BST& operator=(BST &&) = delete;
 
     /**
-     * @brief Insert new element into the tree
+     * @brief insert new element into the tree
      * 
      * @param key 
      */
-    void Insert(KeyType key){
-        m_Root = InsertHelper(m_Root, key);
+    void insert(KEY_T key){ m_root = insert_helper(m_root, key);
     }
 
     /**
-     * @brief Delete key for the tree
+     * @brief remove key for the tree
      * 
      * @param key to delete
      */
-    void Delete(KeyType key){
-        m_Root = DeleteHelper(m_Root, key);
+    void remove(KEY_T key){ m_root = remove_helper(m_root, key);
     }
 
     /**
      * @brief Return tree min key value
      * 
-     * @return KeyType 
+     * @return KEY_T
      */
-    KeyType Min() const{
-        if (IsEmpty()) throw std::length_error("Tree is empty");
-        return MinHelper(m_Root);
+    KEY_T min() const{
+        if (is_empty()) throw std::length_error("Tree is empty");
+        return min_helper(m_root);
     }
 
     /**
      * @brief Return tree max key value
      * 
-     * @return KeyType 
+     * @return KEY_T
      */
-    KeyType Max() const{
-        if (IsEmpty()) throw std::length_error("Tree is empty");
-        auto max = m_Root;
-        while (max->m_Right) max = max->m_Right;
-        return max->m_Key;
+    KEY_T max() const{
+        if (is_empty()) throw std::length_error("Tree is empty");
+        auto max = m_root;
+        while (max->m_right) max = max->m_right;
+        return max->m_key;
     }
 
     /**
@@ -112,8 +109,8 @@ public:
      * @return true 
      * @return false 
      */
-    bool IsEmpty() const{
-        return m_Root == nullptr;
+    bool is_empty() const{
+        return m_root == nullptr;
     }
 
     /**
@@ -121,8 +118,8 @@ public:
      * 
      * @return size_t 
      */
-    size_t Size() const{
-        return m_Size;
+    size_t size() const{
+        return m_size;
     }
 
     /**
@@ -132,19 +129,19 @@ public:
      * @return true 
      * @return false 
      */
-    bool Contains(KeyType key) const{
-       return ContainsHelper(m_Root, key);
+    bool contains(KEY_T key) const{
+       return contains_helper(m_root, key);
     }
     
     /**
      * @brief This function return in-order vector of keys
      * 
-     * @return std::shared_ptr<std::vector<KeyType>>
+     * @return std::vector<KEY_T>
      */
-    std::shared_ptr<std::vector<KeyType>> TraverseInorder(){
-        std::shared_ptr<std::vector<KeyType>> array = std::make_shared<std::vector<KeyType>>();
-        array->reserve(m_Size);
-        TraverseInorderHelper(m_Root, array);
+    std::vector<KEY_T> traverse_inorder(){
+        std::vector<KEY_T> array;
+        array.reserve(m_size);
+        traverse_inorder_helper(m_root, array);
         return array;
     }
 
@@ -153,107 +150,113 @@ public:
      * @brief This function is used to print keys in ascending order
      * 
      */
-    void Traverse() const{
+    void traverse() const{
         std::cout << "[ ";
-        PrintHelper(m_Root);
+        print_helper(m_root);
         std::cout << "]" << std::endl;
     }
 #endif
     
 private:
-    Node* TraverseInorderHelper(Node* root, std::shared_ptr<std::vector<KeyType>> array){
+    Node* traverse_inorder_helper(Node* root, std::vector<KEY_T>& array){
         if (root != nullptr){
-            if(root->m_Left) TraverseInorderHelper(root->m_Left, array);
-            array->emplace_back(root->m_Key);
-            if(root->m_Right) TraverseInorderHelper(root->m_Right, array);
+            if(root->m_left)
+                traverse_inorder_helper(root->m_left, array);
+            array.emplace_back(root->m_key);
+            if(root->m_right)
+                traverse_inorder_helper(root->m_right, array);
         }
         return root;
     }
 
-    Node* InsertHelper(Node* node, KeyType key){
+    Node* insert_helper(Node* node, KEY_T key){
         if (node == nullptr){
-            m_Size++;
+            m_size++;
             return new Node(key);
         }
-        if (key < node->m_Key){
-            node->m_Left = InsertHelper(node->m_Left, key);
+        if (key < node->m_key){
+            node->m_left = insert_helper(node->m_left, key);
         }
         else 
         {
-            node->m_Right = InsertHelper(node->m_Right, key);
+            node->m_right = insert_helper(node->m_right, key);
         }
 
         return node;
     }
 
-    void FreeNode(Node* node){
-        if (IsEmpty() == false){
-            if (node->m_Left)
-                FreeNode(node->m_Left);
-            if (node->m_Right)
-                FreeNode(node->m_Right);
-            delete node;
+    void free_node(Node* node){
+        if (is_empty()){
+            return;
         }
+        
+        if (node->m_left)
+            free_node(node->m_left);
+        if (node->m_right)
+            free_node(node->m_right);
+        delete node;
     }
 
-    bool ContainsHelper(const Node* root, KeyType key) const{
-        if (root->m_Key > key)
-            return (root->m_Left) ? ContainsHelper(root->m_Left, key) : false;
-        else if (root->m_Key < key)
-            return (root->m_Right) ? ContainsHelper(root->m_Right, key) : false;
+    bool contains_helper(const Node* root, KEY_T key) const{
+        if (root->m_key > key)
+            return (root->m_left) && contains_helper(root->m_left, key);
+        else if (root->m_key < key)
+            return (root->m_right) && contains_helper(root->m_right, key);
         else 
             return true;
-    }   
-
-    KeyType MinHelper(const Node* root) const{
-        auto min = root;
-        while (min->m_Left) min = min->m_Left;
-        return min->m_Key;
     }
 
-    Node* DeleteHelper(Node* root, KeyType key){
+    KEY_T min_helper(const Node* root) const{
+        auto min {root};
+        while (min->m_left){
+             min = min->m_left;
+        }
+        return min->m_key;
+    }
+
+    Node* remove_helper(Node* root, KEY_T key){
         if (root == nullptr) return root;
 
-        if (key > root->m_Key)
-            root->m_Right = DeleteHelper(root->m_Right, key);
-        else if (key < root->m_Key)
-            root->m_Left = DeleteHelper(root->m_Left, key);
+        if (key > root->m_key)
+            root->m_right = remove_helper(root->m_right, key);
+        else if (key < root->m_key)
+            root->m_left = remove_helper(root->m_left, key);
         else{
-            if (root->m_Left == nullptr && root->m_Right == nullptr){
+            if (root->m_left == nullptr && root->m_right == nullptr){
                 delete root;
                 root = nullptr;
-                m_Size--;
-            } else if (root->m_Left == nullptr){
-                auto right = root->m_Right;
+                m_size--;
+            } else if (root->m_left == nullptr){
+                auto right = root->m_right;
                 delete root;
                 root = right;
-                m_Size--;
-            } else if (root->m_Right == nullptr){
-                auto left = root->m_Left;
+                m_size--;
+            } else if (root->m_right == nullptr){
+                auto left = root->m_left;
                 delete root;
                 root = left;
-                m_Size--;
+                m_size--;
             } else {
-                auto min = MinHelper(root->m_Right);
-                root->m_Key = min;
-                root->m_Right = DeleteHelper(root->m_Right, min);
+                auto min = min_helper(root->m_right);
+                root->m_key = min;
+                root->m_right = remove_helper(root->m_right, min);
             }
         }
         return root;
     }
 
 #ifdef DEBUG
-    void PrintHelper(const Node* node) const{
-        if (node->m_Left)
-            PrintHelper(node->m_Left);
-        std::cout << node->m_Key << ' ';
-        if (node->m_Right)
-            PrintHelper(node->m_Right);
+    void print_helper(const Node* node) const{
+        if (node->m_left)
+            PrintHelper(node->m_left);
+        std::cout << node->m_key << ' ';
+        if (node->m_right)
+            PrintHelper(node->m_right);
     }
 #endif
 
 private:
-    Node* m_Root = nullptr;
-    size_t m_Size = 0;
+    Node* m_root{nullptr};
+    size_t m_size{0};
 };
 }

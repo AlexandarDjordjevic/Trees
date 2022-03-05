@@ -1,0 +1,139 @@
+---
+Checks: >
+    -*,
+    modernize-use-override,
+    bugprone-dynamic-static-initializers,
+    bugprone-dangling-handle,
+    bugprone-redundant-branch-condition,
+    bugprone-spuriously-wake-up-functions,
+    bugprone-undefined-memory-manipulation,
+    bugprone-use-after-move,
+    deadcode.DeadStores,
+    readability-identifier-naming
+WarningsAsErrors: ''
+HeaderFilterRegex: ''
+AnalyzeTemporaryDtors: false
+FormatStyle:     none
+CheckOptions:
+  - key:             readability-identifier-naming.IgnoreFailedSplit
+    value:           '0'
+  - key:             readability-identifier-naming.AbstractClassCase
+    value:           'aNy_CasE' # Camel_lower_case with 'A' or 'I' prefix.
+  - key:             readability-identifier-naming.ClassCase
+    value:           'aNy_CasE' # Camel_lower_case
+  - key:             readability-identifier-naming.ClassConstantCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.ClassConstantPrefix
+    value:           'k_'
+  - key:             readability-identifier-naming.ClassMethodCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.ConstantCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.ConstantPrefix
+    value:           'k_'
+  - key:             readability-identifier-naming.ConstantMemberCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.ConstantMemberPrefix
+    value:           'k_'
+  - key:             readability-identifier-naming.ConstantParameterCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.ConstantPointerParameterCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.ConstantPointerParameterPrefix
+    value:           'k_'
+  - key:             readability-identifier-naming.ConstexprFunctionCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.ConstexprMethodCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.ConstexprVariableCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.ConstexprVariablePrefix
+    value:           'k_'
+  - key:             readability-identifier-naming.EnumCase
+    value:           'aNy_CasE' # Camel_lower_case
+  - key:             readability-identifier-naming.EnumConstantCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.FunctionCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.GlobalConstantCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.GlobalConstantPrefix
+    value:           'k_'
+  - key:             readability-identifier-naming.GlobalConstantPointerCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.GlobalConstantPointerPrefix
+    value:           'k_'
+  - key:             readability-identifier-naming.GlobalFunctionCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.GlobalPointerCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.GlobalPointerPrefix
+    value:           'g_'
+  - key:             readability-identifier-naming.GlobalVariableCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.GlobalVariablePrefix
+    value:           'g_' # also applies to class static variables
+  - key:             readability-identifier-naming.InlineNamespaceCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.LocalConstantCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.LocalConstantPointerCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.LocalPointerCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.LocalVariableCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.MemberCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.MemberPrefix
+    value:           'm_'
+  - key:             readability-identifier-naming.MethodCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.NamespaceCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.ParameterCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.ParameterPackCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.PointerParameterCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.PrivateMemberCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.PrivateMemberPrefix
+    value:           'm_'
+  - key:             readability-identifier-naming.PrivateMethodCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.ProtectedMemberCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.ProtectedMemberPrefix
+    value:           'm_'
+  - key:             readability-identifier-naming.PublicMemberCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.PublicMethodCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.StaticConstantCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.StaticConstantPrefix
+    value:           'k_'
+  - key:             readability-identifier-naming.StaticVariableCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.StructCase
+    value:           'aNy_CasE' # Camel_lower_case
+  - key:             readability-identifier-naming.TemplateParameterCase
+    value:           'aNy_CasE' # Camel_lower_case
+  - key:             readability-identifier-naming.TemplateTemplateParameterCase
+    value:           'aNy_CasE' # Camel_lower_case
+  - key:             readability-identifier-naming.TypeAliasCase
+    value:           'aNy_CasE' # Camel_lower_case
+  - key:             readability-identifier-naming.TypedefCase
+    value:           'aNy_CasE' # Camel_lower_case
+  - key:             readability-identifier-naming.TypeTemplateParameterCase
+    value:           'aNy_CasE' # Camel_lower_case
+  - key:             readability-identifier-naming.UnionCase
+    value:           'aNy_CasE' # Camel_lower_case
+  - key:             readability-identifier-naming.ValueTemplateParameterCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.VariableCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.VirtualMethodCase
+    value:           'lower_case'
